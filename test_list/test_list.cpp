@@ -35,7 +35,7 @@ public:
 };
 
 void printL(list<Students> s, string title = "") {
-    cout << title << endl;
+    cout<< endl << title << endl;
     for (Students ss : s) {
         ss.print();
     }
@@ -50,6 +50,21 @@ void test01() {
     };
 
     printL(std, "Students in the beginning: ");
+
+    std.push_back({ "Arslan", 3.9 });
+    printL(std, "After Adding Arslan: ");
+
+
+    std.sort();
+    printL(std, "After Sorting: ");
+
+    std.sort(
+        [](Students& p1, Students& p2) {
+        return p1.getGpa() < p2.getGpa();
+        });
+    printL(std, "After Sorting by GPA: ");
+
+
 }
 
 int main()
